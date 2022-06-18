@@ -1,0 +1,8 @@
+[
+  { "id": 1234, "cash": 0, "credit": 0, "account": [1002] },
+  { "id": 1235, "cash": 0, "credit": 0, "account": [1003] },
+  { "id": 1236, "cash": 0, "credit": 0, "account": [10202] },
+  { "id": 1237, "cash": 0, "credit": 0, "account": [5241, 5968] },
+  { "id": 1238, "cash": 0, "credit": 0, "account": [5713, 9966] },
+  { "id": 1239, "cash": 0, "credit": 0, "account": [1056] }
+]
