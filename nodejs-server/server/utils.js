@@ -1,8 +1,11 @@
-const { log } = require("console");
-const fs = require("fs");
+// const { log } = require("console");
+// const fs = require("fs");
+///
+import fs from "fs";
+///
 // const users = require("./users.json");
 
-const loadUsers = () => {
+export const loadUsers = () => {
   try {
     const dataBuffer = fs.readFileSync("./users.json");
     const dataJson = dataBuffer.toString();
@@ -12,7 +15,7 @@ const loadUsers = () => {
     return [];
   }
 };
-const loadAccounts = () => {
+export const loadAccounts = () => {
   try {
     const dataBuffer = fs.readFileSync("./accounts.json");
     const dataJson = dataBuffer.toString();
@@ -52,7 +55,7 @@ const saveAccounts = (data) => {
 //   }
 
 // }
-const getUserDetails = ({ id }, res) => {
+export const getUserDetails = ({ id }, res) => {
   const users = loadUsers();
   const accounts = loadAccounts();
   const checkUserIndex = users.findIndex((user) => user.id === id);
@@ -71,7 +74,7 @@ const getUserDetails = ({ id }, res) => {
   return { ...users[checkUserIndex], ...accountDetails };
 };
 
-const createUser = (newUser, res) => {
+export const createUser = (newUser, res) => {
   const users = loadUsers();
   const accounts = loadAccounts();
   const checkUser = users.findIndex((user) => user.id === newUser.id);
@@ -110,7 +113,7 @@ const createUser = (newUser, res) => {
   saveAccounts(accounts);
 };
 
-const deleteUser = (deleteUser, res) => {
+export const deleteUser = (deleteUser, res) => {
   const users = loadUsers();
   const filteredUsers = users.filter((user) => user.id !== deleteUser.id);
   if (users.length !== filteredUsers.length) {
@@ -120,7 +123,7 @@ const deleteUser = (deleteUser, res) => {
   }
 };
 
-const updateUserDeposit = ({ id, cash, accountToDeposit }, res) => {
+export const updateUserDeposit = ({ id, cash, accountToDeposit }, res) => {
   const users = loadUsers();
   const accounts = loadAccounts();
   const userIndex = users.findIndex((user) => user.id === id);
@@ -156,7 +159,7 @@ const updateUserDeposit = ({ id, cash, accountToDeposit }, res) => {
     res.status(400).send("No user with that specific id");
   }
 };
-const updateUserCredit = ({ id, credit, accountToCredit }, res) => {
+export const updateUserCredit = ({ id, credit, accountToCredit }, res) => {
   const users = loadUsers();
   const accounts = loadAccounts();
   const userIndex = users.findIndex((user) => user.id === id);
@@ -187,7 +190,7 @@ const updateUserCredit = ({ id, credit, accountToCredit }, res) => {
     res.status(400).send("No user with that specific id");
   }
 };
-const updateUserWithdraw = ({ id, cash }, res) => {
+export const updateUserWithdraw = ({ id, cash }, res) => {
   const users = loadUsers();
   const userIndex = users.findIndex((user) => user.id === id);
 
@@ -204,7 +207,7 @@ const updateUserWithdraw = ({ id, cash }, res) => {
     res.status(400).send("No user credit to withdraw");
   }
 };
-const updateUserTransfer = ({ id, cash, accountToTransfer }, res) => {
+export const updateUserTransfer = ({ id, cash, accountToTransfer }, res) => {
   const users = loadUsers();
   const userIndex = users.findIndex((user) => user.id === accountToTransfer);
 
@@ -226,14 +229,14 @@ const updateUserTransfer = ({ id, cash, accountToTransfer }, res) => {
   //   res.status(400).send("No user credit to withdraw");
   // }
 };
-module.exports = {
-  createUser,
-  loadAccounts,
-  loadUsers,
-  getUserDetails,
-  deleteUser,
-  updateUserDeposit,
-  updateUserCredit,
-  updateUserWithdraw,
-  updateUserTransfer,
-};
+// module.exports = {
+//   createUser,
+//   loadAccounts,
+//   loadUsers,
+//   getUserDetails,
+//   deleteUser,
+//   updateUserDeposit,
+//   updateUserCredit,
+//   updateUserWithdraw,
+//   updateUserTransfer,
+// };

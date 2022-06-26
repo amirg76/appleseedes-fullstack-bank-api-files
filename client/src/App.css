@@ -39,6 +39,37 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  display: flex;
+  width: 100vw;
+  border: 1px solid black;
+  height: 100vh;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.button-container {
+  width: 20vw;
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.button-container button {
+  background-color: blue;
+  color: white;
+  height: 5vh;
+  margin: 2vw;
+}
+.content-container {
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .get-users {
   display: flex;
   flex-direction: column;
@@ -46,9 +77,13 @@
   justify-content: center;
 }
 .show-users {
-  width: 20vh;
-  height: 20vh;
+  display: flex;
+  margin: 1vw;
+  /* width: 100vh; */
+  /* height: 20vh; */
 }
 .user-detail {
   border: 1px solid black;
+  margin: 1vw;
+  padding: 1vw;
 }
